@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Jeshurun!</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #ffe6f0, #d9b3ff);
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .card {
+            width: 85vw;
+            max-width: 400px;
+            min-width: 280px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            padding: 5vw;
+            position: relative;
+            animation: bounce 0.5s ease-in-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(-20px); }
+            50% { transform: translateY(10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            max-height: 40vh;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 3vw;
+            border: 2px solid #ff99cc;
+        }
+
+        .card h1 {
+            color: #ff4d94;
+            font-size: clamp(1.5rem, 6vw, 1.8rem);
+            margin: 2vw 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            transition: color 0.3s ease;
+        }
+
+        .card:hover h1 {
+            color: #e60073;
+        }
+
+        .card p {
+            color: #4a4a4a;
+            font-size: clamp(0.9rem, 4vw, 1rem);
+            line-height: 1.6;
+            margin: 0 2vw 4vw;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff99cc;
+            border-radius: 50%;
+            animation: fall 3s linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 4vw;
+            }
+
+            .card img {
+                border-width: 1.5px;
+            }
+
+            .confetti {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .card {
+                min-width: 250px;
+            }
+
+            .card h1 {
+                font-size: clamp(1.2rem, 5.5vw, 1.5rem);
+            }
+
+            .card p {
+                font-size: clamp(0.8rem, 3.8vw, 0.9rem);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="https://i.pinimg.com/736x/11/0d/e0/110de0996b9a43a9aa79aaa6be57eef9.jpg" alt="Cute Birthday Image">
+        <h1>Happy Birthday, Jeshurun!</h1>
+        <p>Wishing you a day filled with love, laughter, and endless joy! May your heart be as full as a sky full of stars, and may this year bring you all the happiness you deserve. You're truly special!</p>
+    </div>
+
+    <script>
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.background = ['#ff99cc', '#ffcc66', '#99ff99', '#66ccff'][Math.floor(Math.random() * 4)];
+            confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 3000);
+        }
+
+        setInterval(createConfetti, 200);
+    </script>
+</body>
+</html>
